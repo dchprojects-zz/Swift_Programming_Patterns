@@ -1,6 +1,6 @@
 import Foundation
 
-enum SyncStep {
+enum SyncState {
     case initialization
     case start
     case inProgress(progress: Float)
@@ -10,7 +10,7 @@ enum SyncStep {
 protocol SyncManagerInterface {
     
     var isRunning: Bool { get }
-    var currentStep: SyncStep { get }
+    var currentState: SyncState { get }
     
     func start()
     func cancel()
@@ -21,7 +21,7 @@ final class SyncManager: SyncManagerInterface {
     
     public var isRunning: Bool {
         
-        switch currentStep {
+        switch currentState {
             
         case .initialization,
                 .finish:
@@ -38,10 +38,10 @@ final class SyncManager: SyncManagerInterface {
         
     }
     
-    public var currentStep: SyncStep
+    public var currentState: SyncState
     
     init() {
-        self.currentStep = .initialization
+        self.currentState = .initialization
     }
     
 }
@@ -53,16 +53,16 @@ extension SyncManager {
         
         // Update Current Step
         //
-        self.currentStep = .start
+        self.currentState = .start
         //
         
         // Code For Synchronization
         // ...
         // ...
-                
+        
         // Update Current Step
         //
-        self.currentStep = .inProgress(progress: .zero)
+        self.currentState = .inProgress(progress: .zero)
         //
         
     }
@@ -71,7 +71,7 @@ extension SyncManager {
         
         // Update Current Step
         //
-        self.currentStep = .finish
+        self.currentState = .finish
         //
         
     }
