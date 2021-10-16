@@ -14,5 +14,7 @@
 
 - State [link](https://github.com/dchprojects/Swift_Programming_Patterns/blob/master/Swift_Programming_Patterns.playground/Sources/Behavioral/State.swift)
 
+- Chain of Responsibility [link](https://github.com/dchprojects/Swift_Programming_Patterns/blob/master/Swift_Programming_Patterns.playground/Sources/Behavioral/ChainOfResponsibility.swift)
+
 ## License
 Swift_Programming_Patterns is licensed under the MIT License, please see the [LICENSE](LICENSE) file.
